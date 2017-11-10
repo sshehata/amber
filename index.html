@@ -1,0 +1,55 @@
+<!doctype html><html lang="en" ng-app="app" ng-strict-di ng-controller="AppCtrl
+  as $ctrl"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible"
+    content="IE=11"><title ng-bind-html="$ctrl.nav.getMetaTitle('AmberScript', '
+      | ')">AmberScript</title><meta name="author" content="kuus
+    <kunderikuus@gmail.com> (http://kunderikuus.net)"><meta name="viewport"
+    content="width=device-width,initial-scale=1"><meta
+name="mobile-web-app-capable" content="yes"><meta
+name="apple-mobile-web-app-capable" content="yes"><meta
+name="apple-mobile-web-app-status-bar-style" content="#62c8d5"><meta
+name="description" content="AmberScript"><link rel="apple-touch-icon"
+sizes="180x180" href="images/favicons/apple-touch-icon.png"><link rel="icon"
+type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png"><link
+rel="icon" type="image/png" sizes="16x16"
+href="images/favicons/favicon-16x16.png"><link rel="manifest"
+href="images/favicons/manifest.json"><link rel="mask-icon"
+href="images/favicons/safari-pinned-tab.svg" color="#62c8d5"><link rel="shortcut
+icon" href="images/favicons/favicon.ico"><meta name="apple-mobile-web-app-title"
+content="AmberScript"><meta name="application-name" content="AmberScript"><meta
+name="msapplication-config" content="images/favicons/browserconfig.xml"><meta
+name="theme-color" content="#ffffff"><base href="/amber/"><script>if(location.host!=='localhost:3000'){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TWZ6GZN');}</script><script>if(location.host!=='localhost:3000'){window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set._.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");$.src="https://v2.zopim.com/?503Y0bixCbuyEdMEKl4e87VK3yxfsVws";z.t=+new Date;$.type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");};</script><style>.app__loader{z-index:1;position:absolute;top:0;left:0;height:100%;width:100%;display:flex;align-items:center;justify-content:center;background:#fafafa}.app__loader-spinner{-webkit-animation:rotate 2s linear infinite;animation:rotate 2s linear infinite;z-index:2}.app__loader-path{stroke-dasharray:1,150;stroke-dashoffset:0;stroke:#62C8D5;stroke-linecap:round;-webkit-animation:dash 1.5s ease-in-out infinite;animation:dash 1.5s ease-in-out infinite}@keyframes rotate{100%{transform:rotate(360deg)}}@-webkit-keyframes rotate{100%{-webkit-transform:rotate(360deg)}}@keyframes dash{0%{stroke-dasharray:1,150;stroke-dashoffset:0}50%{stroke-dasharray:90,150;stroke-dashoffset:-35}100%{stroke-dasharray:90,150;stroke-dashoffset:-124}}@-webkit-keyframes dash{0%{stroke-dasharray:1,150;stroke-dashoffset:0}50%{stroke-dasharray:90,150;stroke-dashoffset:-35}100%{stroke-dasharray:90,150;stroke-dashoffset:-124}}</style></head><body ng-cloak class="{{ $ctrl.bodyClass }}"><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWZ6GZN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><ui-view class="app__wrapper"><div class="app__loader"><svg class="app__loader-spinner" width="50" height="50" viewBox="0 0 44 44"><circle class="app__loader-path" cx="22" cy="22" r="20" fill="none" stroke-width="4"></circle></svg></div></ui-view><script type="text/ng-template" id="pagination.html"><ul class="pagination">
+        <li ng-if="::boundaryLinks" class="pagination__first" ng-style="{'visibility': noPrevious()||ngDisabled ? 'hidden': 'visible'}">
+          <md-button class="md-icon-button" ng-click="selectPage(1, $event)">
+            <md-icon md-svg-icon="first_page.svg"></md-icon><md-tooltip md-direction="top">First page</md-tooltip>
+          </md-button>
+        </li>
+        <li ng-if="::directionLinks" class="pagination__prev" ng-style="{'visibility': noPrevious()||ngDisabled ? 'hidden': 'visible'}">
+          <md-button class="md-icon-button" ng-click="selectPage(page - 1, $event)">
+            <md-icon md-svg-icon="chevron_left.svg"></md-icon><md-tooltip md-direction="top">Previous</md-tooltip>
+          </md-button>
+        </li>
+        <li ng-repeat="page in pages track by $index" class="pagination__page" ng-class="{'active': page.active}">
+          <md-button class="md-icon-button" ng-click="selectPage(page.number, $event)" ng-disabled="ngDisable&&!page.active">{{page.text}}</md-button>
+        </li>
+        <li ng-if="::directionLinks" class="pagination__next" ng-style="{'visibility': noNext()||ngDisabled ? 'hidden': 'visible'}">
+          <md-button class="md-icon-button" ng-click="selectPage(page + 1, $event)">
+            <md-icon md-svg-icon="chevron_right.svg"></md-icon><md-tooltip md-direction="top">Next</md-tooltip>
+          </md-button>
+        </li>
+        <li ng-if="::boundaryLinks" class="pagination__last" ng-style="{'visibility': noNext()||ngDisabled ? 'hidden': 'visible'}">
+          <md-button class="md-icon-button" ng-click="selectPage(totalPages, $event)">
+            <md-icon md-svg-icon="last_page.svg"></md-icon><md-tooltip md-direction="top">Last page</md-tooltip>
+          </md-button>
+        </li>
+      </ul></script><script>// configuration:
+      window.CONFIG = {
+        analyticsId: 'UA-103189116-1',
+        defaultLanguage: 'en',
+        backend: 'https://qs.amberscript.com/',
+        redirectUnauth: 'app.login',
+        redirectAuth: 'app.records',
+        defaultRecoverUrl: '',
+        confScoreThreshold: 0.8
+      };
+      // end
+      configuration</script><script>if(location.host!=='localhost:3000'){(function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:575066,hjsv:5};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');}</script><script src="/amber/vendor.min.f569e1eb398b49948578.js"></script><script src="/amber/app.min.6199ecb00376810be335.js"></script></body></html>
